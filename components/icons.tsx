@@ -1,7 +1,6 @@
-// app/components/icons.tsx
+
 import { SVGProps } from 'react';
 
-// A simple placeholder logo SVG
 export function Logo(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -20,7 +19,6 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-// Hamburger menu icon
 export function Menu(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -42,7 +40,6 @@ export function Menu(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-// Close (X) icon
 export function X(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -63,7 +60,6 @@ export function X(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-// Social media icons for the footer
 export function Twitter(props: SVGProps<SVGSVGElement>) {
   return (
     <svg

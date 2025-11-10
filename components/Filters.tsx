@@ -1,4 +1,4 @@
-// Filters.tsx - Airbnb Style Horizontal Filters
+
 'use client';
 
 import { Property } from '@/types/property';

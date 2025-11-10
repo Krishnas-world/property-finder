@@ -1,4 +1,4 @@
-// PropertyMap.tsx - Colorful map with pin highlights
+
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -8,7 +8,6 @@ import { Property } from '@/types/property';
 import PropertyPopup from './PropertyPopup';
 import { createRoot } from 'react-dom/client';
 
-// Fix for default marker icons
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
@@ -59,7 +58,6 @@ export default function PropertyMap({
     }
   }, [filteredProperties, selectedProperty, onPropertySelect]);
 
-  // Initialize map
   useEffect(() => {
     if (!mapContainerRef.current || mapInstanceRef.current) {
       return;
@@ -130,7 +128,7 @@ export default function PropertyMap({
     };
   }, [onViewportChange]);
 
-  // Update markers
+
   useEffect(() => {
     if (!mapInstanceRef.current || !mounted) return;
 
@@ -182,7 +180,6 @@ export default function PropertyMap({
     });
   }, [filteredProperties, mounted, selectedProperty, hoveredProperty, onPropertySelect]);
 
-  // Ensure popup is fully visible within the map container
   const ensurePopupInView = () => {
     try {
       const map = mapInstanceRef.current;
@@ -193,24 +190,23 @@ export default function PropertyMap({
 
       const mapRect = mapEl.getBoundingClientRect();
       const popupRect = popupEl.getBoundingClientRect();
-      const padding = 16; // px
+      const padding = 16; 
 
       let panX = 0;
       let panY = 0;
 
-      // Right overflow
       if (popupRect.right > mapRect.right - padding) {
         panX -= popupRect.right - (mapRect.right - padding);
       }
-      // Left overflow
+     
       if (popupRect.left < mapRect.left + padding) {
         panX += (mapRect.left + padding) - popupRect.left;
       }
-      // Bottom overflow
+    
       if (popupRect.bottom > mapRect.bottom - padding) {
         panY -= popupRect.bottom - (mapRect.bottom - padding);
       }
-      // Top overflow
+  
       if (popupRect.top < mapRect.top + padding) {
         panY += (mapRect.top + padding) - popupRect.top;
       }
@@ -221,7 +217,7 @@ export default function PropertyMap({
     } catch {}
   };
 
-  // Selected property popup (single React root reused)
+  
   useEffect(() => {
     if (!mapInstanceRef.current || !mounted) return;
 
@@ -289,17 +285,16 @@ export default function PropertyMap({
       popupRef.current?.setLatLng([selectedProperty.lat, selectedProperty.lng]);
     }
 
-    // Render into popup
+   
     popupRootRef.current?.render(<PropertyPopup property={selectedProperty} />);
 
-    // After render, ensure visibility (multiple passes to account for image/layout)
+
     requestAnimationFrame(() => {
       ensurePopupInView();
       setTimeout(() => ensurePopupInView(), 80);
       setTimeout(() => ensurePopupInView(), 200);
     });
 
-    // Observe content size changes (e.g., image load) and re-pan
     if (popupContentRef.current) {
       if (popupResizeObserverRef.current) {
         popupResizeObserverRef.current.disconnect();

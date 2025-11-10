@@ -1,4 +1,4 @@
-// PropertyList.tsx - Airbnb Grid Style with Hover
+
 'use client';
 
 import { Property } from '@/types/property';

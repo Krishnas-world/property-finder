@@ -1,4 +1,3 @@
-// page.tsx - Main Property Finder Page (Airbnb Style)
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';

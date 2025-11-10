@@ -1,4 +1,4 @@
-// PropertyPopup.tsx - Clean Airbnb Style with Link
+
 'use client';
 
 import { Property } from '@/types/property';

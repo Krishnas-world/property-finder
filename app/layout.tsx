@@ -1,4 +1,4 @@
-// app/layout.tsx
+
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
@@ -15,27 +15,25 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-// --- Better Metadata ---
+
 export const metadata: Metadata = {
-  // Use a template for page titles
   title: {
     default: 'Property Finder India – Premium Rentals for Modern Living',
     template: '%s | Property Finder India',
   },
   description:
     'Discover fully-furnished premium rentals across Mumbai, Delhi, Bengaluru, Hyderabad, Pune, and Chennai. Filter by city, budget, and property type to find your next home.',
-  // Add metadataBase for absolute URLs in Open Graph
-  metadataBase: new URL('https://propertyfinder.in'), // <-- Replace with your domain
+  metadataBase: new URL('https://propertyfinder.in'), 
   openGraph: {
     title: 'Property Finder India – Premium Rentals for Modern Living',
     description:
       'Discover fully-furnished premium rentals across India’s top cities with interactive maps, verified listings, and curated neighbourhood insights.',
-    url: 'https://propertyfinder.in', // <-- Replace with your domain
+    url: 'https://propertyfinder.in', 
     siteName: 'Property Finder India',
-    // Add a placeholder image (replace with your actual OG image)
+
     images: [
       {
-        url: '/og-image.png', // <-- Create this image in your /public folder
+        url: '/og-image.png', 
         width: 1200,
         height: 630,
       },
@@ -47,14 +45,14 @@ export const metadata: Metadata = {
     title: 'Property Finder India – Premium Rentals for Modern Living',
     description:
       'Browse premium rentals with interactive maps, verified listings, and curated neighbourhood insights across India.',
-    // images: ['/twitter-image.png'], // You can specify a different image for Twitter
+    
   },
-  // Add icons for favicon, etc.
+  
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
-  // Add a robots tag for SEO
+
   robots: {
     index: true,
     follow: true,
