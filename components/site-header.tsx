@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Logo, Menu, X } from './icons'; // Our new icons
+import { Logo, Menu, X } from './icons';
 
 const navLinks = [
   { href: '/property-finder', label: 'Search Rentals' },
